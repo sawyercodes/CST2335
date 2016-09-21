@@ -2,4 +2,14 @@
 <resources>
     <string name="hello_message">Bounjour le monde!</string>
     <string name="button_text">Je suis un bouton</string>
+
+    <string name="login_text">Connexion</string>
+    <string name="login_hint">Identifiant</string>
+    <string name="password_text">Mot de passe</string>
+
+    <string name="button1_text">Bouton 1</string>
+    <string name="button2_text">Bouton 2</string>
+    <string name="image_button_text">Bouton d\'image</string>
+    <string name="switch_text">Activer quelque chose</string>
+
 </resources>
