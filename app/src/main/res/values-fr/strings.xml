@@ -11,5 +11,9 @@
     <string name="button2_text">Bouton 2</string>
     <string name="image_button_text">Bouton d\'image</string>
     <string name="switch_text">Activer quelque chose</string>
+    <string name="finishActivityMessage">Est-ce que tu es positif que tu veux terminer cet activite?</string>
+    <string name="finishActivityTitle">Terminer cet activite</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Annuler</string>
 
 </resources>

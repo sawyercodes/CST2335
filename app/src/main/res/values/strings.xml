@@ -14,5 +14,9 @@
     <string name="switch_text">Enable Something</string>
 
     <string name="title_activity_login">LoginActivity</string>
+    <string name="finishActivityMessage">Are you sure you want to finish this activity?</string>
+    <string name="finishActivityTitle">Finish Activity</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 
 </resources>
