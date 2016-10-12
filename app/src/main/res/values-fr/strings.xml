@@ -2,6 +2,8 @@
 <resources>
     <string name="hello_message">Bounjour le monde!</string>
     <string name="button_text">Je suis un bouton</string>
+    <string name="button_chat">Commencer une conversation</string>
+    <string name="button_send">Envoyer</string>
 
     <string name="login_text">Connexion</string>
     <string name="login_hint">Identifiant</string>

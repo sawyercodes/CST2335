@@ -2,6 +2,9 @@
     <string name="app_name">Lab1</string>
     <string name="hello_message">Hello World!</string>
     <string name="button_text">I\'m a button</string>
+    <string name="button_chat">Start Chat</string>
+
+    <string name="button_send">Send</string>
 
     <string name="login_text">Login</string>
     <string name="login_hint">Login Name</string>
@@ -18,5 +21,6 @@
     <string name="finishActivityTitle">Finish Activity</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="title_activity_chat_window">ChatWindow</string>
 
 </resources>
