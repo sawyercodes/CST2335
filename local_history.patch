@@ -1,0 +1,24 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision )
++++ app/src/main/AndroidManifest.xml	(revision )
+@@ -9,15 +9,6 @@
+         android:supportsRtl="true"
+         android:theme="@style/AppTheme">
+         <activity android:name=".StartActivity">
+-            <!--<intent-filter>
+-                <action android:name="android.intent.action.MAIN" />
+-
+-                <category android:name="android.intent.category.LAUNCHER" />
+-            </intent-filter>-->
+-        </activity>
+-        <activity
+-            android:name=".LoginActivity"
+-            android:label="@string/title_activity_login">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+ 
+\ No newline at end of file
