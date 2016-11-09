@@ -1,10 +1,11 @@
 package com.example.victo.lab1;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.Resources;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 
 public class ChatWindow extends AppCompatActivity {
 
+    private static SQLiteDatabase chatDB;
     final ArrayList<String> chatArray = new ArrayList<>();
 
     @Override
@@ -31,11 +33,33 @@ public class ChatWindow extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Resources resources = getResources();
+        Context context = getApplicationContext();
+
         final ListView listViewChat = (ListView) findViewById(R.id.listViewChat);
         final ChatAdapter chatAdapter = new ChatAdapter(this);
         listViewChat.setAdapter(chatAdapter);
         final EditText editTextChat = (EditText) findViewById(R.id.editTextChat);
         Button buttonSend = (Button) findViewById(R.id.buttonSend);
+
+        ChatDatabaseHelper chatDBHelper = new ChatDatabaseHelper(context);
+        chatDB = chatDBHelper.getWritableDatabase();
+        final ContentValues cValues = new ContentValues();
+
+        Cursor cursor = chatDB.query(ChatDatabaseHelper.TABLE_NAME, new String[]{ChatDatabaseHelper.KEY_ID, ChatDatabaseHelper.KEY_MESSAGE}, null, null, null, null, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                String message = cursor.getString(cursor.getColumnIndex(ChatDatabaseHelper.KEY_MESSAGE));
+                chatArray.add(message);
+                Log.i(ACTIVITY_NAME, "SQL MESSAGE: " + cursor.getString(cursor.getColumnIndex(ChatDatabaseHelper.KEY_MESSAGE)));
+                cursor.moveToNext();
+            } while (!cursor.isAfterLast());
+        }
+
+        Log.i(ACTIVITY_NAME, "Cursor's column count=" + cursor.getColumnCount());
+        for (int i=0; i<cursor.getColumnCount(); i++) {
+            Log.i(ACTIVITY_NAME, cursor.getColumnName(i));
+        }
 
 
         buttonSend.setOnClickListener(new View.OnClickListener() {
@@ -45,8 +69,16 @@ public class ChatWindow extends AppCompatActivity {
                 chatArray.add(chatString);
                 chatAdapter.notifyDataSetChanged();
                 editTextChat.setText("");
+                cValues.put("message", chatString);
+                chatDB.insert(ChatDatabaseHelper.TABLE_NAME, null, cValues);
             }
         });
+
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        chatDB.close();
     }
 
     private class ChatAdapter extends ArrayAdapter<String> {
@@ -76,6 +108,8 @@ public class ChatWindow extends AppCompatActivity {
             message.setText(getItem(position));
             return result;
         }
+
     }
+    protected static final String ACTIVITY_NAME = "ChatWindow";
 
 }

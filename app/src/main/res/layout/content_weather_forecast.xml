@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_weather_forecast"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:gravity="center"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.victo.lab1.WeatherForecast"
+    tools:showIn="@layout/activity_weather_forecast">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/weatherImage"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weatherCurrentTemp"
+        android:layout_below="@+id/weatherImage"
+        android:text="Current: "
+        android:gravity="center_horizontal" />
+
+    <View
+        android:id="@+id/fakeView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weatherMinTemp"
+        android:layout_below="@+id/weatherCurrentTemp"
+        android:layout_alignRight="@+id/fakeView"
+        android:layout_alignParentLeft="true"
+        android:text="Min: " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weatherMaxTemp"
+        android:text="Max: "
+        android:layout_below="@+id/weatherCurrentTemp"
+        android:layout_alignLeft="@+id/fakeView"
+        android:layout_alignParentRight="true" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/weatherProgress"
+        android:layout_below="@+id/weatherMaxTemp"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

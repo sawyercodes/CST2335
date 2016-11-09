@@ -17,4 +17,24 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+
+    <!-- Custom styles -->
+    <style name="inputFieldContainer">
+        <item name="android:background">#9cedbd</item>
+        <item name="android:textColor">#cccccc</item>
+    </style>
+
+    <style name="inputField">
+        <item name="android:background">#333333</item>
+        <item name="android:textColor">#cccccc</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">#8e6ab7</item>
+        <item name="android:textColor">#cccccc</item>
+    </style>
 </resources>
